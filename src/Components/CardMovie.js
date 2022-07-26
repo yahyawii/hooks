@@ -1,12 +1,12 @@
-import {usestate } from  "react"
+import {useState } from  "react"
 import {Button} from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
+import {Card} from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
 
-const Cardmovie =({movie,movies,setMovies})=>{
-    const[showMore,setshowMore]=usestate(false)
-    const handleShow=()=>setshowMore(!showMore)
-    const handleDelete=(id)=> setMovies(movies.filter(movie=>movie.id !=id))
+const CardMovie =({movie,movies,setMovies})=>{
+    const[showMore,setShowMore]=useState(false)
+    const handleShow=()=>{setShowMore(!showMore)}
+    const handleDelete=(id)=> {setMovies(movies.filter(movie=>movie.id !=id))}
     return(
 <div>
 <Card style={{ width: '18rem' }}>
@@ -21,7 +21,7 @@ const Cardmovie =({movie,movies,setMovies})=>{
                 
         
        
-      />
+      
                 <br/>
                 <Button variant="primary" onClick={()=>{handleDelete(movie.id) }}>Delete</Button>
             </Card.Body>
@@ -29,4 +29,4 @@ const Cardmovie =({movie,movies,setMovies})=>{
 </div>
     )
 }
-export default Cardmovie
+export default CardMovie

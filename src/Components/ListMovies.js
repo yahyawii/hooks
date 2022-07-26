@@ -1,11 +1,10 @@
-import CardMovie from "./Cardmovie"
+import CardMovie from "./CardMovie"
 
-const Listmovies =(movies,setMovies)=>{
+const ListMovies =({movies,setMovies})=>{
     return (
-        <div
-    className="List">
+        <div className="List">
         {
-       movies.map(movie=> <CardMovie movie={movie} setMovies={setMovies} movies={movies}/>)
+          movies.map(movie=> <CardMovie key={movie.id} movie={movie} setMovies={setMovies} movies={movies}/>)
 
         }
 
@@ -13,4 +12,4 @@ const Listmovies =(movies,setMovies)=>{
 
     )
 }
-export default Listmovies
+export default ListMovies
