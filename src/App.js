@@ -5,6 +5,10 @@ import ListMovies from './Components/ListMovies';
 import AddMovie from './Components/AddMovie';
 import CardMovie from './Components/CardMovie';
 import FilterMovies from './Components/FilterMovies';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Components/Home';
+import Description from './Components/Description';
+
 
 function App() {
   const [movies,setMovies]=useState (
@@ -27,7 +31,14 @@ function App() {
       <FilterMovies setTitleF={setTitleF} setRatingF={setRatingF} titleF={titleF} ratingF={ratingF}/>
       <br/>
       <br/>
-      <ListMovies movies={movies} setMovies={setMovies} titleF={titleF} ratingF={ratingF}/>
+      <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/List' element={ <ListMovies movies={movies} setMovies={setMovies} titleF={titleF} ratingF={ratingF}/>  }/>
+      <Route path='/movie/:id' element={<Description movies={movies}/>}/>
+
+      </Routes>
+ 
+      
     </div>
   );
 }

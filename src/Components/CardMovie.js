@@ -2,6 +2,7 @@ import {useState } from  "react"
 import {Button} from 'react-bootstrap';
 import {Card} from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
+import { Link } from "react-router-dom";
 
 const CardMovie =({movie,movies,setMovies})=>{
     const[showMore,setShowMore]=useState(false)
@@ -10,7 +11,7 @@ const CardMovie =({movie,movies,setMovies})=>{
     return(
 <div>
 <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={movie.posterURL} style={{width:'286px',height:'389px'}}/>
+           <Link to={`/movie/${movie.id}`}> <Card.Img variant="top" src={movie.posterURL} style={{width:'286px',height:'389px'}}/></Link>
             <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>
